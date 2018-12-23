@@ -68,7 +68,7 @@ for(var k in messages )
         me.avatar=user.username;
         socket.emit('connecté');
         Ousers[me.id]=me;
-        me.password=user.password;
+        /***me.password=user.password;**/
         io.sockets.emit('newusr',me);
     });
 

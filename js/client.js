@@ -19,7 +19,7 @@
         socket.emit('login',{
             username: $('#username'). val(),
             mail: $('#email').val(),
-            password: $('#password').val()
+            /****password: $('#password').val()**/
         })
 
         });
