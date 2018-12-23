@@ -10,6 +10,7 @@
 
     var socket = io.connect('http://localhost:1337');
     var msg = $('#messvue').html();
+    var lastSms = false;
     $('#messvue').remove();
 
 
@@ -40,8 +41,14 @@
          })
 
          socket.on('newmsg',function(message){
-
-             $('#messages').append('<div class="message">'+ Mustache.render('messvue',message) +'</div>');
+if(lastSms != message.user.id){
+    $('messages').append('<div class="sep"></div>');
+    lastSms = message.user.id
+}
+        $('#messages').append('<div class="message">'+ Mustache.render('messvue',message) +
+        '</div>');
+             
+             $('#messages').animate({scrollTop : $('#messages').prop('scrollHeight')}, 500 );
 
          })
 
@@ -53,7 +60,7 @@
 
         socket.on('newusr',function(user){
             $('#users').append('<img src="' + user.avatar + '" id="' + user.id + '" >');
-            alert('nouvel utilisateur');
+
         })
 
 

@@ -6,7 +6,7 @@
 
 
 var http = require('http');
-var md5 = require('MD5');
+
 
 httpServer=http.createServer(function(req,res){
     console.log('un utilisateur a afficher la page');
@@ -16,6 +16,8 @@ httpServer=http.createServer(function(req,res){
 httpServer.listen(1337);
 var io=require('socket.io').listen(httpServer);
 var Ousers={};
+var messages=[];
+var history;
 
 
 io.sockets.on('connection', function(socket){
@@ -28,6 +30,11 @@ io.sockets.on('connection', function(socket){
     socket.emit('newusr',Ousers[k]);
 }
 
+for(var k in messages )
+{
+    socket.emit('newmsg',messages[k]);
+}
+
 /***********
  * Reception d'un message
  */
@@ -37,6 +44,13 @@ io.sockets.on('connection', function(socket){
      message.date=new Date();
      message.h = new date.getHours();
      message.m = new date.getMinutes();
+     messages.push(message);
+
+     if(messages.length > history)
+     {
+        messages.shift();
+     }
+
      io.sockets.emit('newmsg',message);
  })
 
