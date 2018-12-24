@@ -1,0 +1,23 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gen-code/chat.git"
+  },
+  "author": "Ekangoh steve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gen-code/chat/issues"
+  },
+  "homepage": "https://github.com/Gen-code/chat#readme",
+  "dependencies": {
+    "socket.io": "^2.2.0"
+  }
+}
