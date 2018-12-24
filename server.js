@@ -9,8 +9,7 @@ var http = require('http');
 
 
 httpServer=http.createServer(function(req,res){
-    console.log('un utilisateur a afficher la page');
-    res.end('hello world');
+    console.log('un utilisateur a afficher la page')
 });
 
 httpServer.listen(1337);
@@ -64,7 +63,7 @@ for(var k in messages )
     socket.on('login', function(user){
         console.log(user);
         me=user;
-        me.id=user.mail.replace('@','-').replace('.','-');
+        
         me.avatar=user.username;
         socket.emit('connecté');
         Ousers[me.id]=me;

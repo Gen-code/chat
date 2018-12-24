@@ -8,7 +8,7 @@
 
 (function($){
 
-    var socket = io.connect('http://localhost:1337');
+    var socket = io.connect('http://localhost:1337/');
     var msg = $('#messvue').html();
     var lastSms = false;
     $('#messvue').remove();
@@ -45,7 +45,7 @@ if(lastSms != message.user.id){
     $('messages').append('<div class="sep"></div>');
     lastSms = message.user.id
 }
-        $('#messages').append('<div class="message">'+ Mustache.render('messvue',message) +
+        $('#messages').append('<div class="message">'+ mustache.render('messvue',message) +
         '</div>');
              
              $('#messages').animate({scrollTop : $('#messages').prop('scrollHeight')}, 500 );
