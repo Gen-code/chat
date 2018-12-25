@@ -59,7 +59,8 @@ if(lastSms != message.user.id){
 
 
         socket.on('newusr',function(user){
-            $('#users').append('<img src="' + user.avatar + '" id="' + user.id + '" >');
+            $('#users').append('<img src="img/' + user.avatar + '.jpg" id="' + user.id + 
+            '" style="border:4px;border-radius:50%";height:50px;width:50px">');
 
         })
 

@@ -1,4 +1,10 @@
 body
 {
-    background-image:url(/img/4.jpeg);
+    background-color:burlywood;
+}
+#form
+{
+    margin-top:35%;
+    position:fixed;
+    width: 50%;
 }
